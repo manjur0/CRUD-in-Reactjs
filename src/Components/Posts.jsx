@@ -36,6 +36,26 @@ const Posts = () => {
           <h2>{post.id}</h2>
           <h2>{post.title}</h2>
           <p>{post.body}</p>
+          <button
+            style={{
+              padding: "6px",
+              borderRadius: "6px",
+              background: "blue",
+              color: "white",
+            }}
+          >
+            Edit
+          </button>
+          <button
+            style={{
+              padding: "6px",
+              borderRadius: "6px",
+              background: "red",
+              color: "white",
+            }}
+          >
+            Delete
+          </button>
         </div>
       ))}
     </div>
