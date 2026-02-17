@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPost } from "../API/PostApi";
+import { deletePost, getPost } from "../API/PostApi";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -19,9 +19,17 @@ const Posts = () => {
   }, []);
 
   // Delete Event Handler:
-  const handleDeletePost = (id) => {
-    const updatedPosts = posts.filter((post) => post.id !== id);
-    setPosts(updatedPosts);
+  const handleDeletePost = async (id) => {
+    console.log("Clicked dlt");
+    try {
+      const res = await deletePost(id);
+      if (res.status === 200) {
+        const udpatedPosts = posts.filter((post) => post.id !== id);
+        setPosts(udpatedPosts);
+      }
+    } catch (error) {
+      console.log(error.messsage);
+    }
   };
 
   return (
