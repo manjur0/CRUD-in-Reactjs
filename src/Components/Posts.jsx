@@ -26,6 +26,8 @@ const Posts = () => {
       if (res.status === 200) {
         const udpatedPosts = posts.filter((post) => post.id !== id);
         setPosts(udpatedPosts);
+      } else {
+        console.log("Failed to delete the post");
       }
     } catch (error) {
       console.log(error.messsage);
