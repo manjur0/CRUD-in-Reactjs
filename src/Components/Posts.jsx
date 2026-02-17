@@ -14,8 +14,16 @@ const Posts = () => {
   };
   // Call data from UseEffect
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     getPostData();
   }, []);
+
+  // Delete Event Handler:
+  const handleDeletePost = (id) => {
+    const updatedPosts = posts.filter((post) => post.id !== id);
+    setPosts(updatedPosts);
+  };
+
   return (
     <div
       style={{
@@ -53,6 +61,7 @@ const Posts = () => {
               background: "red",
               color: "white",
             }}
+            onClick={() => handleDeletePost(post.id)}
           >
             Delete
           </button>
